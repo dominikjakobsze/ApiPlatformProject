@@ -1,0 +1,17 @@
+services:
+  db_service:
+    image: mysql:8.0
+    hostname: db-service
+    container_name: db-service
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - 2400:3306
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: api
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+volumes:
+  mysql_data:
